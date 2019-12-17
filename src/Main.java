@@ -6,13 +6,16 @@ public class Main {
 
     public static void main(String[] args) {
         ArrayList<Sensor> sensors = new ArrayList<>();
+        ArrayList<MeasureType> measureTypes = new ArrayList<>();
         importSensors(sensors);
+        importMeasureTypes(measureTypes);
         System.out.println(sensors);
+        System.out.println(measureTypes);
     }
 
-    public static void importSensors(ArrayList<Sensor> sensors) {
+    private static void importSensors(ArrayList<Sensor> sensors) {
         String sensorsDataFile ="src/Sensors.csv";
-        BufferedReader br = null;
+        BufferedReader br;
         String line;
         String splitLineBy = ";";
 
@@ -29,7 +32,7 @@ public class Main {
         }
     }
 
-    public static void importMeasureTypes(ArrayList<MeasureType> sensors) {
+    private static void importMeasureTypes(ArrayList<MeasureType> measureTypes) {
         String measureTypeDataFile ="src/AttributeType.csv";
         BufferedReader br = null;
         String line;
@@ -40,8 +43,8 @@ public class Main {
             br.readLine();
             while ((line = br.readLine()) != null) {
                 String[] row = line.split(splitLineBy);
-//                MeasureType newSenor = new MeasureType(row[0], Double.parseDouble(row[1]), Double.parseDouble(row[2]));
-//                sensors.add(newSenor);
+                MeasureType newMeasureType = new MeasureType(row[0], row[1], row[2]);
+                measureTypes.add(newMeasureType);
             }
         } catch (Exception e) {
             System.out.println(e.toString());
@@ -70,6 +73,6 @@ public class Main {
 
         }
 
-        return 0;
+        return 0.0;
     }
 }
