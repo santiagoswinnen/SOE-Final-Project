@@ -1,21 +1,21 @@
 public class Measurement {
-    private int timestamp;
+    private String timestamp;
     private Sensor sensor;
     private MeasureType measureType;
-    private int value;
+    private Double value;
 
-    public Measurement(int timestamp, Sensor sensor, MeasureType measureType, int value) {
+    public Measurement(String timestamp, Sensor sensor, MeasureType measureType, Double value) {
         this.timestamp = timestamp;
         this.sensor = sensor;
         this.measureType = measureType;
         this.value = value;
     }
 
-    public int getTimestamp() {
+    public String getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(int timestamp) {
+    public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
 
@@ -35,11 +35,11 @@ public class Measurement {
         this.measureType = measureType;
     }
 
-    public int getValue() {
+    public Double getValue() {
         return value;
     }
 
-    public void setValue(int value) {
+    public void setValue(Double value) {
         this.value = value;
     }
 }
